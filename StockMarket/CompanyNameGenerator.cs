@@ -83,66 +83,81 @@ namespace StockMarket
             int ranNum = rnd.Next(0, 100);
             if (ranNum <= 33)
             {
-                return Math.Round(comName.Length * 11.3, 2, MidpointRounding.AwayFromZero);
+                double value = Math.Round(comName.Length * (Math.Sin(rnd.NextDouble()) * 10), 2, MidpointRounding.AwayFromZero);
+                if (value < 0) return Math.Abs(value);
+                return value;
             }
             else if (ranNum >= 34 && ranNum <= 66)
             {
-                return Math.Round(comName.Length * 6.6, 2, MidpointRounding.AwayFromZero);
+                double value = Math.Round(comName.Length * Math.Sin(rnd.NextDouble() * 20), 2, MidpointRounding.AwayFromZero);
+                if (value < 0) return Math.Abs(value);
+                return value;
             }
             else if (ranNum >= 67)
             {
-                return Math.Round(comName.Length * 15.4, 2, MidpointRounding.AwayFromZero);
+                double value = setInitialShares(Math.Round(comName.Length * Math.Sin(rnd.NextDouble() * 30), 2, MidpointRounding.AwayFromZero), comName);
+
+                if (value < 0) return Math.Abs(value);
+                return value;
             }
             else
             {
                 return Math.Round(comName.Length * 3.3, 2, MidpointRounding.AwayFromZero);
             }
-
         }
 
         private int setInitialShares(double comValue, string comName)
         {
-            return Convert.ToInt32((comValue * 3) * ((comName.Length * 3) / 12));
-        }
-
-        public List<Company> UpdateSharePrice(List<Company> generated)
-        {
             Random rnd = new Random();
-            int upOrDown;
-            int jumpOrFall;
-
-            foreach (Company comp in generated)
+            int result = Convert.ToInt32((comValue * 50) * ((comName.Length * 3) / 36));
+            if (result == 0)
             {
-                upOrDown = rnd.Next(0, 100);
-                jumpOrFall = rnd.Next(0, 100);
-                if (comp.Value < 0.5)
-                {
-                    comp.Value += 2.5;
-                }
-                if (upOrDown <= 50)
-                {
-                    if (jumpOrFall <= 10)
-                    {
-                        comp.Value = Math.Round(comp.Value / (rnd.NextDouble() * rnd.Next(50, 125)), 2, MidpointRounding.AwayFromZero);
-                    }
-                    else
-                    {
-                        comp.Value = Math.Round(comp.Value / (rnd.NextDouble() * rnd.Next(5, 15)), 2, MidpointRounding.AwayFromZero);
-                    }
-                }
-                else if (upOrDown >= 51)
-                {
-                    if (jumpOrFall <= 10)
-                    {
-                        comp.Value = Math.Round(comp.Value * (rnd.NextDouble() * rnd.Next(75, 125)), 2, MidpointRounding.AwayFromZero);
-                    }
-                    else
-                    {
-                        comp.Value = Math.Round(comp.Value * (rnd.NextDouble() * rnd.Next(5, 15)), 2, MidpointRounding.AwayFromZero);
-                    }
-                }
+                result = 12;
             }
-            return generated;
+            return result;
         }
+
+        public List<Company> UpdateShares(List<Company> baseline)
+        {
+            List<Company> updated;
+            Random rnd = new Random();
+            #region Outcommented Annoying Price Algorithm
+            //foreach (Company comp in generated)
+            //{
+            //    upOrDown = rnd.Next(0, 100);
+            //    jumpOrFall = rnd.Next(0, 100);
+            //    if (comp.Value < 0.5)
+            //    {
+            //        comp.Value += 2.5;
+            //    }
+            //    if (upOrDown <= 50)
+            //    {
+            //        if (jumpOrFall <= 10)
+            //        {
+            //            comp.Value = Math.Round(comp.Value / (rnd.NextDouble() * rnd.Next(50, 125)), 2, MidpointRounding.AwayFromZero);
+            //        }
+            //        else
+            //        {
+            //            comp.Value = Math.Round(comp.Value / (rnd.NextDouble() * rnd.Next(5, 15)), 2, MidpointRounding.AwayFromZero);
+            //        }
+            //    }
+            //    else if (upOrDown >= 51)
+            //    {
+            //        if (jumpOrFall <= 10)
+            //        {
+            //            comp.Value = Math.Round(comp.Value * (rnd.NextDouble() * rnd.Next(75, 125)), 2, MidpointRounding.AwayFromZero);
+            //        }
+            //        else
+            //        {
+            //            comp.Value = Math.Round(comp.Value * (rnd.NextDouble() * rnd.Next(5, 15)), 2, MidpointRounding.AwayFromZero);
+            //        }
+            //    }
+
+            // return generated;
+            // }
+            #endregion
+            return null;
+        }
+
     }
 }

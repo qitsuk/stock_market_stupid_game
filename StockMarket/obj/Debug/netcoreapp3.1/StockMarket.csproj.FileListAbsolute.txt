@@ -72,3 +72,4 @@ C:\Users\Data\Documents\stock_market_stupid_game\StockMarket\obj\Debug\netcoreap
 C:\Users\Data\Documents\stock_market_stupid_game\StockMarket\obj\Debug\netcoreapp3.1\StockMarket.AssemblyInfo.cs
 C:\Users\Data\Documents\stock_market_stupid_game\StockMarket\obj\Debug\netcoreapp3.1\StockMarket.dll
 C:\Users\Data\Documents\stock_market_stupid_game\StockMarket\obj\Debug\netcoreapp3.1\StockMarket.pdb
+C:\Users\Data\Documents\stock_market_stupid_game\StockMarket\obj\Debug\netcoreapp3.1\StockMarket.csprojAssemblyReference.cache

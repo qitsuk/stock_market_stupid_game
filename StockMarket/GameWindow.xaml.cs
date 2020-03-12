@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace StockMarket
 {
@@ -65,7 +58,7 @@ namespace StockMarket
             market_datagrid.ItemsSource = companies;
             portfolio_datagrid.ItemsSource = null;
             portfolio_datagrid.ItemsSource = p.Portfolio;
-            if (nextDay) event_box_label1.Content = sleep() + "\n" + dailyExpences(p.Rent, p.Food);
+            if (nextDay) event_box_label1.Content = p.sleep() + "\n" + p.dailyExpences();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -84,34 +77,9 @@ namespace StockMarket
         private void next_day_button_Click(object sender, RoutedEventArgs e)
         {
             currentDay++;
-            companies = cng.UpdateSharePrice(companies);
+            companies = cng.UpdateShares(companies);
             p.Balance -= p.DailyExpences;
             UpdateAll(true);
-        }
-
-        private string sleep()
-        {
-            Random rnd = new Random();
-            int sleepRandom = rnd.Next(0, 3);
-            if (sleepRandom == 0)
-            {
-                return "You slept through the night, without a care. You wake up refreshed and ready.";
-            }
-            else if (sleepRandom == 1)
-            {
-                return "You slept ok, but you had a fairly weird dream. You brush it of and get ready for the day.";
-            }
-            else if (sleepRandom == 2)
-            {
-                return "You slept like crap, and you're feeling kinda groggy. Take care with your investments today.";
-            }
-            return "You slept. Period.";
-        }
-
-        private string dailyExpences(double rent, double food)
-        {
-            double total = rent + food;
-            return "You paid your daily rent of $" + rent + " and put aside the $" + food + ", you need to eat. \nA total of $" + total + " has been deducted from your account.";
         }
     }
 }

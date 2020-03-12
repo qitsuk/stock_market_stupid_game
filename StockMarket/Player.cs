@@ -59,5 +59,29 @@ namespace StockMarket
                 Portfolio.ElementAt(itemIndex).Shares -= amountToSell;
             }
         }
+        public string sleep()
+        {
+            Random rnd = new Random();
+            int sleepRandom = rnd.Next(0, 3);
+            if (sleepRandom == 0)
+            {
+                return "You slept through the night, without a care. You wake up refreshed and ready.";
+            }
+            else if (sleepRandom == 1)
+            {
+                return "You slept ok, but you had a fairly weird dream. You brush it of and get ready for the day.";
+            }
+            else if (sleepRandom == 2)
+            {
+                return "You slept like crap, and you're feeling kinda groggy. Take care with your investments today.";
+            }
+            return "You slept. Period.";
+        }
+
+        public string dailyExpences()
+        {
+            double total = Rent + Food;
+            return "You paid your daily rent of $" + Rent + " and put aside the $" + Food + ", you need to eat. \nA total of $" + total + " has been deducted from your account.";
+        }
     }
 }
