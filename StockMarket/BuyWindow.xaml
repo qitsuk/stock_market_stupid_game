@@ -1,0 +1,17 @@
+﻿<Window x:Class="StockMarket.BuyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockMarket"
+        mc:Ignorable="d" Height="287" Width="347" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="title_label" Content="" Margin="10,10,30,0" VerticalAlignment="Top" FontFamily="Bauhaus 93" FontSize="15" HorizontalContentAlignment="Center"/>
+        <Label Content="How many shares would you like to purchase?" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="320" FontSize="15" FontFamily="Bauhaus 93" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="buy_text" HorizontalAlignment="Left" Margin="10,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Height="25" FontSize="15" FontFamily="Bauhaus 93" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="(Whole numbers only!!!!)" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="307" FontSize="15" FontFamily="Bauhaus 93" HorizontalContentAlignment="Center"/>
+        <Button x:Name="buy_button" Content="Buy" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Height="32" Width="307" FontSize="15" FontFamily="Bauhaus 93" Click="buy_button_Click"/>
+        <Button x:Name="cancel_button" Content="Cancel" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Height="27" Width="307" FontFamily="Bauhaus 93" FontSize="15" Click="cancel_button_Click"/>
+
+    </Grid>
+</Window>

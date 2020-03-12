@@ -1,0 +1,21 @@
+﻿<Window x:Class="StockMarket.GameWindow"
+        Closing="Window_Closing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockMarket"
+        mc:Ignorable="d"
+        Title="Wolf Street" Height="561" Width="904" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Your Portfolio" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="103" FontFamily="Bauhaus 93" FontSize="15"/>
+        <Button x:Name="next_day_button" Content="Go To Sleep" HorizontalAlignment="Left" Margin="365,210,0,0" VerticalAlignment="Top" Width="136" FontSize="15" FontFamily="Bauhaus 93" Click="next_day_button_Click"/>
+        <Label Content="The Market" HorizontalAlignment="Left" Margin="518,148,0,0" VerticalAlignment="Top" Width="120" FontSize="15" FontFamily="Bauhaus 93"/>
+        <DataGrid x:Name="portfolio_datagrid" HorizontalAlignment="Left" Width="350" Margin="10,180,0,31" IsReadOnly="True" MouseDoubleClick="portfolio_datagrid_MouseDoubleClick"/>
+        <DataGrid x:Name="market_datagrid" HorizontalAlignment="Right" Width="350" Margin="0,180,36,31" IsReadOnly="True" MouseDoubleClick="market_datagrid_MouseDoubleClick"/>
+        <Label x:Name="player_balance_label" Content="Your liquid funds: $" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="360" FontSize="16" FontFamily="Bauhaus 93"/>
+        <Label x:Name="current_day_label" Content="You are on day 2/30" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="175" FontSize="15" FontFamily="Bauhaus 93"/>
+        <Label x:Name="event_box_label" Content="Event Box" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="356,15,0,0" VerticalAlignment="Top" Width="174" FontSize="15" FontFamily="Bauhaus 93"/>
+        <Label x:Name="event_box_label1" Content="" HorizontalAlignment="Left" Margin="63,47,0,0" VerticalAlignment="Top" Height="96" Width="768" Background="{x:Null}" FontFamily="Bauhaus 93" FontSize="15" BorderThickness="1" BorderBrush="Black"/>
+    </Grid>
+</Window>
