@@ -14,6 +14,7 @@ namespace StockMarket
         private CompanyNameGenerator cng;
         private Player p;
         private List<Company> companies;
+        private List<Company> original;
         private int currentDay = 1;
 
         public GameWindow(CompanyNameGenerator cng, Player p)
@@ -22,6 +23,7 @@ namespace StockMarket
             this.cng = cng;
             this.p = p;
             companies = cng.GetGeneratedCompanies();
+            original = companies;
             market_datagrid.ItemsSource = companies;
             player_balance_label.Content += p.Balance.ToString();
             current_day_label.Content = "You are on day " + currentDay + "/30";
@@ -77,7 +79,7 @@ namespace StockMarket
         private void next_day_button_Click(object sender, RoutedEventArgs e)
         {
             currentDay++;
-            companies = cng.UpdateShares(companies);
+            companies = cng.UpdateShares(original, companies);
             p.Balance -= p.DailyExpences;
             UpdateAll(true);
         }

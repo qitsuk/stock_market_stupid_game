@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace StockMarket
@@ -108,7 +109,6 @@ namespace StockMarket
 
         private int setInitialShares(double comValue, string comName)
         {
-            Random rnd = new Random();
             int result = Convert.ToInt32((comValue * 50) * ((comName.Length * 3) / 36));
             if (result == 0)
             {
@@ -117,10 +117,11 @@ namespace StockMarket
             return result;
         }
 
-        public List<Company> UpdateShares(List<Company> baseline)
+        public List<Company> UpdateShares(List<Company> original, List<Company> baseline)
         {
             List<Company> updated;
             Random rnd = new Random();
+            double originValue;
             #region Outcommented Annoying Price Algorithm
             //foreach (Company comp in generated)
             //{
@@ -156,6 +157,21 @@ namespace StockMarket
             // return generated;
             // }
             #endregion
+
+            foreach (Company c in original)
+            {
+                var itemIndex = baseline.FindIndex(x => x.Name == c.Name);
+                originValue = baseline.ElementAt(itemIndex).Value;
+
+                foreach (Company comp in baseline)
+                {
+                    if (comp.Value > originValue && rnd.Next(0, 100) >= 75)
+                    {
+
+                    }
+                }
+            }
+
             return null;
         }
 
